@@ -1,0 +1,57 @@
+:root {
+  color-scheme: dark;
+  --bg: #071526;
+  --panel: rgba(16, 36, 58, .94);
+  --cyan: #4de4ff;
+  --gold: #ffd166;
+  --text: #eef8ff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; color: var(--text);
+  background: radial-gradient(ellipse at top, #123b5b 0%, var(--bg) 68%);
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
+.app { max-width: 1050px; margin: auto; padding: 18px; }
+header { text-align: center; padding: 8px 0 18px; }
+.anchor { font-size: 34px; }
+h1 { margin: 4px 0; color: var(--cyan); letter-spacing: .12em; text-shadow: 0 0 18px #00cfff; }
+.subtitle, .hint, footer { color: #a7c8df; }
+.subtitle { margin: 6px 0; }
+.panel {
+  background: var(--panel); border: 1px solid #2b5672; border-radius: 18px;
+  padding: 16px; margin: 12px 0; box-shadow: 0 8px 28px #0005;
+}
+label { display: block; color: #b9d9eb; font-size: 13px; margin: 8px 0 6px; }
+.action-row { display: flex; gap: 8px; flex-wrap: wrap; }
+input, button {
+  min-width: 0; font: inherit; font-size: 15px; border-radius: 10px;
+  padding: 11px 12px; border: 1px solid #37617a; color: var(--text); background: #081a2b;
+}
+input { flex: 1; width: 120px; }
+button { cursor: pointer; background: #0b647e; border-color: var(--cyan); font-weight: 700; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button.secondary { background: #34465a; border-color: #60788c; }
+.status { min-height: 42px; padding: 12px 2px 6px; color: var(--gold); }
+.utility-row { margin-top: 4px; }
+.boards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+h2 { font-size: 16px; margin: 0; color: var(--cyan); letter-spacing: .04em; }
+.hint { min-height: 18px; font-size: 12px; margin: 6px 0 10px; }
+.board { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; }
+.cell {
+  padding: 0; min-width: 0; aspect-ratio: 1; border-radius: 4px;
+  display: grid; place-items: center; font-size: clamp(9px, 2.4vw, 16px);
+  background: #17435e; border: 1px solid #2b6a88;
+}
+.cell.ship { background: #738b9b; }
+.cell.hit { background: #c54848; border-color: #ff8888; }
+.cell.miss { background: #d8e8ef; color: #172d3b; }
+.cell.target:not(:disabled):hover { background: #237e9f; box-shadow: 0 0 8px var(--cyan); }
+footer { text-align: center; font-size: 12px; padding: 16px 4px 24px; }
+@media (max-width: 680px) {
+  .app { padding: 10px; }
+  .boards { grid-template-columns: 1fr; }
+  .panel { padding: 12px; }
+  button { flex: 1; }
+  h1 { font-size: 25px; }
+}
