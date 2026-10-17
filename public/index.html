@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071526">
+  <title>Морской бой онлайн</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="anchor">⚓</div>
+      <h1>МОРСКОЙ БОЙ</h1>
+      <p class="subtitle">Два капитана · Одна победа</p>
+    </header>
+
+    <section class="panel controls">
+      <label for="playerName">Имя капитана</label>
+      <div class="action-row">
+        <input id="playerName" maxlength="20" value="Капитан" placeholder="Твоё имя">
+        <button id="createRoom">Создать игру</button>
+      </div>
+      <label for="roomCode">Код комнаты друга</label>
+      <div class="action-row">
+        <input id="roomCode" maxlength="6" placeholder="Например, A1B2C3">
+        <button id="joinRoom" class="secondary">Войти</button>
+      </div>
+      <div id="status" class="status" role="status">Создай комнату или введи код друга.</div>
+      <div class="action-row utility-row">
+        <button id="newFleet" class="secondary" disabled>Новая расстановка</button>
+        <button id="ready" disabled>Готов к бою!</button>
+        <button id="copyCode" class="secondary" disabled>Копировать код</button>
+      </div>
+    </section>
+
+    <section class="boards">
+      <article class="panel">
+        <h2>ТВОЙ ФЛОТ</h2>
+        <p class="hint">Здесь находятся твои корабли.</p>
+        <div id="ownBoard" class="board" aria-label="Твоё поле"></div>
+      </article>
+      <article class="panel">
+        <h2>ПОЛЕ СОПЕРНИКА</h2>
+        <p class="hint">Нажми на клетку, чтобы выстрелить.</p>
+        <div id="enemyBoard" class="board" aria-label="Поле соперника"></div>
+      </article>
+    </section>
+    <footer>Подключитесь с двух устройств и используйте один код комнаты.</footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/game.js"></script>
+</body>
+</html>
